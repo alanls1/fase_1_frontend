@@ -1,0 +1,16 @@
+.button {
+  outline: none;
+  cursor: pointer;
+}
+.contained {
+  background-color: #2563eb;
+  color: #fff;
+  border-radius: 6px;
+  width: 100%;
+  height: 50px;
+}
+
+.outlined {
+  background-color: transparent;
+  border: 0px;
+}
