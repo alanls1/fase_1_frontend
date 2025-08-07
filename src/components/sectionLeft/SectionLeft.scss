@@ -1,0 +1,33 @@
+.section-left {
+  justify-content: space-between;
+  background-color: #2563eb;
+  display: flex;
+  flex: 1;
+  padding: 2rem;
+
+  &,
+  .section-header {
+    flex-direction: column;
+  }
+
+  .section-header {
+    div {
+      align-items: center;
+      gap: 5px;
+
+      h1 {
+        font-size: 1.2rem;
+      }
+      img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  .feedback {
+    background-color: #1d4ed8;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+}
