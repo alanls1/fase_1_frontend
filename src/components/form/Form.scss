@@ -1,0 +1,54 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+
+  label {
+    padding-left: 5px;
+    color: #374151;
+  }
+
+  input {
+    padding-left: 41px;
+    border-radius: 6px;
+    outline: none;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    height: 42px;
+    max-width: 327px;
+
+    &::placeholder {
+      color: #cccccc;
+    }
+  }
+
+  small {
+    color: #6b7280;
+  }
+
+  .input-password {
+    position: relative;
+    display: flex;
+
+    input {
+      flex: 1;
+    }
+
+    button {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+
+      svg {
+        color: #9ca3af;
+      }
+    }
+  }
+
+  .button-save {
+    margin-top: 1.25rem;
+  }
+}
