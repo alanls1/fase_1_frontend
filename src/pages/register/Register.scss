@@ -1,0 +1,49 @@
+.register-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  &,
+  .section-form,
+  .section-header,
+  .section-header div,
+  .section-right {
+    display: flex;
+  }
+
+  .section-form {
+    max-width: 845px;
+    height: 566px;
+    width: 100%;
+
+    .section-right {
+      background-color: #f9fafb;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #000000;
+      gap: 10px;
+      flex: 1;
+      padding: 2rem;
+
+      .policy {
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: start;
+        width: 100%;
+        margin: 0px;
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+    }
+  }
+}
