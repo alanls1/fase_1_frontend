@@ -3,25 +3,11 @@
   flex-direction: column;
   gap: 5px;
   width: 100%;
+  max-width: 600px;
 
   label {
     padding-left: 5px;
     color: #374151;
-  }
-
-  input {
-    padding-left: 41px;
-    border-radius: 6px;
-    outline: none;
-    background-color: #ffffff;
-    border: 1px solid #d1d5db;
-    color: #374151;
-    height: 42px;
-    max-width: 327px;
-
-    &::placeholder {
-      color: #cccccc;
-    }
   }
 
   small {
