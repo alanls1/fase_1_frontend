@@ -1,0 +1,38 @@
+.acc-form-container {
+  flex-direction: column;
+  gap: 10px;
+  &,
+  div {
+    display: flex;
+    align-items: center;
+  }
+
+  div {
+    width: 90%;
+    justify-content: space-between;
+
+    input {
+      max-width: 100px;
+      width: 100%;
+      text-align: center;
+      padding: 0px;
+
+      &::-webkit-inner-spin-button,
+      &[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0; /* Opcional: remove margens */
+      }
+
+      /* Oculta as setas no Firefox */
+      &[type="number"]::-moz- remove-stepper {
+        -moz-appearance: none;
+        margin: 0; /* Opcional: remove margens */
+      }
+
+      /* Oculta as setas em outros navegadores */
+      &[type="number"] {
+        appearance: textfield; /* Para garantir que o botão não apareça em outros navegadores */
+      }
+    }
+  }
+}

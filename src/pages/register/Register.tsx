@@ -1,16 +1,19 @@
-import Form from "../../components/form/Form";
+import Form, { type valuesInput } from "../../components/form/Form";
 import SectionLeft from "../../components/sectionLeft/SectionLeft";
 import "./Register.scss";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const values = (e: valuesInput) => {
+    console.log("E: ", e);
+  };
   return (
     <div className="register-container">
       <div className="section-form">
         <SectionLeft />
         <div className="section-right">
-          <h3>Crie sua conta</h3>
-          <Form isLogin={false} labelButton="Entrar" />
+          <h2>Crie sua conta</h2>
+          <Form isLogin={false} labelButton="Entrar" handleSubmit={values} />
           <div className="policy">
             <small>
               Ao se cadastrar, você concorda com nossos Termos de Serviço e

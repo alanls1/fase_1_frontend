@@ -13,8 +13,7 @@
   }
 
   .section-form {
-    max-width: 845px;
-    height: 566px;
+    height: 100vh;
     width: 100%;
 
     .section-right {
@@ -31,12 +30,13 @@
         text-align: center;
       }
 
-      h3 {
-        font-size: 1.5rem;
+      h2 {
+        font-size: 3rem;
         font-weight: bold;
         text-align: start;
         width: 100%;
         margin: 0px;
+        max-width: 600px;
       }
 
       & > div {
