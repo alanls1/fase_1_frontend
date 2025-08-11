@@ -6,11 +6,16 @@ interface prop {
   variant: "contained" | "outlined";
   onClick?: () => void;
   type: "submit" | "reset" | "button" | undefined;
+  title?: string | undefined;
 }
 
-const Button = ({ children, variant, onClick, type }: prop) => {
+const Button = ({ children, variant, onClick, type, title }: prop) => {
   return (
-    <button className={`button ${variant}`} onClick={onClick} type={type}>
+    <button
+      className={`button ${variant}`}
+      onClick={onClick}
+      type={type}
+      title={title}>
       {children}
     </button>
   );
