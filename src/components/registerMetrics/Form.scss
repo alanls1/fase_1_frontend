@@ -1,0 +1,39 @@
+.form-metrics-container {
+  flex: 0.8;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      width: 100%;
+      text-align: center;
+      padding: 0px;
+
+      &::-webkit-inner-spin-button,
+      &[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0; /* Opcional: remove margens */
+      }
+
+      /* Oculta as setas no Firefox */
+      &[type="number"]::-moz- remove-stepper {
+        -moz-appearance: none;
+        margin: 0; /* Opcional: remove margens */
+      }
+
+      /* Oculta as setas em outros navegadores */
+      &[type="number"] {
+        appearance: textfield; /* Para garantir que o botão não apareça em outros navegadores */
+      }
+    }
+  }
+
+  button {
+    grid-column: 1/3;
+    font-size: 1.5rem;
+  }
+}
