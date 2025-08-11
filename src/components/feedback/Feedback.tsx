@@ -6,15 +6,14 @@ import {
 } from "@mui/material";
 import React from "react";
 import CloseIcon from "@mui/icons-material/Close";
+import useFeedback from "../../hook/useFeedback";
 
-interface prop {
-  setOpen: React.Dispatch<
-    React.SetStateAction<{ isVisible: boolean; message: string }>
-  >;
-  open: { isVisible: boolean; message: string };
-}
+const Feedback = () => {
+  const setIsVisible = useFeedback((state) => state.setIsVisible);
+  const setMessage = useFeedback((state) => state.setMessage);
+  const message = useFeedback((state) => state.message);
+  const isVisible = useFeedback((state) => state.isVisible);
 
-const Feedback = ({ open, setOpen }: prop) => {
   const handleClose = (
     _: React.SyntheticEvent | Event,
     reason?: SnackbarCloseReason
@@ -23,7 +22,8 @@ const Feedback = ({ open, setOpen }: prop) => {
       return;
     }
 
-    setOpen({ isVisible: false, message: "" });
+    setIsVisible(false);
+    setMessage("");
   };
 
   const action = (
@@ -43,10 +43,10 @@ const Feedback = ({ open, setOpen }: prop) => {
 
   return (
     <Snackbar
-      open={open.isVisible}
+      open={isVisible}
       autoHideDuration={6000}
       onClose={handleClose}
-      message={open.message}
+      message={message}
       action={action}
     />
   );
