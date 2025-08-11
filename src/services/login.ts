@@ -27,3 +27,13 @@ export const login = async ({ email, password }: IValuesInput) => {
     throw error.response.data.message;
   }
 };
+
+export const logout = async () => {
+  try {
+    const res = await api.post("/users/logout");
+
+    return res.data;
+  } catch (error: any) {
+    throw error.response.data.message;
+  }
+};
