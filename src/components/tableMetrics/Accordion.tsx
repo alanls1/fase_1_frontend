@@ -4,15 +4,21 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Form from "./Form";
+import ShownMetrics from "./shownMetrics";
+import type { IMetrics } from "../../types/metrics";
+import { useState } from "react";
 
 interface prop {
   data: string;
+  item: IMetrics;
 }
 
-export default function AccordionUsage({ data }: prop) {
+export default function AccordionUsage({ data, item }: prop) {
+  const [isEdit, setIsEdit] = useState(false);
+
   return (
     <div>
-      <Accordion>
+      <Accordion sx={{ marginBlock: ".2rem" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -28,7 +34,29 @@ export default function AccordionUsage({ data }: prop) {
             }}>
             Medidas:
           </Typography>
-          <Form />
+          {isEdit ? (
+            <Form
+              busto={item.busto}
+              calcado={item.calcado}
+              cintura={item.cintura}
+              coxa={item.coxa}
+              quadril={item.quadril}
+              torax={item.torax}
+              setEdit={setIsEdit}
+              uid_medidas={item.uid_medidas}
+            />
+          ) : (
+            <ShownMetrics
+              busto={item.busto}
+              calcado={item.calcado}
+              cintura={item.cintura}
+              coxa={item.coxa}
+              quadril={item.quadril}
+              torax={item.torax}
+              setEdit={setIsEdit}
+              uid_medidas={item.uid_medidas}
+            />
+          )}
         </AccordionDetails>
       </Accordion>
     </div>
