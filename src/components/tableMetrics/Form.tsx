@@ -1,34 +1,44 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState } from "react";
 import Input from "../input/Input";
 import "./Form.scss";
+import Button from "../button/Button";
+import useForm from "./logicForm";
+import { useEffect, type Dispatch, type SetStateAction } from "react";
 
 interface propTextField {
   label: string;
   name: string;
-  max: number;
-  min: number;
+  max?: number;
+  min?: number;
   placeholder: string;
 }
 
-interface values {
+export interface values {
   busto: number;
   torax: number;
   cintura: number;
   quadril: number;
   coxa: number;
   calcado: number;
+  uid_medidas?: string;
 }
 
-const Form = () => {
-  const [value, setValue] = useState<values>({
-    busto: 0,
-    torax: 0,
-    cintura: 0,
-    quadril: 0,
-    coxa: 0,
-    calcado: 0,
-  });
+type prop = values & {
+  setEdit: Dispatch<SetStateAction<boolean>>;
+};
+
+const Form = ({
+  busto,
+  calcado,
+  cintura,
+  coxa,
+  quadril,
+  setEdit,
+  torax,
+  uid_medidas,
+}: prop) => {
+  const { handleChange, submit, value, setValue } = useForm();
 
   const textField = ({ label, name, max, min, placeholder }: propTextField) => {
     return (
@@ -40,6 +50,7 @@ const Form = () => {
           onChange={(e) =>
             handleChange(e.target.value as any as number, name as keyof values)
           }
+          value={value[name as keyof values]}
           max={max}
           min={min}
           title={`Insira valores entre ${min} e ${max} cm`}
@@ -49,13 +60,21 @@ const Form = () => {
       </div>
     );
   };
-  console.log(value);
 
-  const handleChange = (e: number, field: keyof values) => {
-    setValue((prev) => ({ ...prev, [field]: e }));
-  };
+  useEffect(() => {
+    setValue({
+      busto,
+      calcado,
+      cintura,
+      coxa,
+      quadril,
+      torax,
+      uid_medidas,
+    });
+  }, [busto, calcado, cintura, coxa, quadril, torax]);
+
   return (
-    <form className="acc-form-container">
+    <form className="acc-form-container" onSubmit={submit}>
       {textField({
         label: "Busto:",
         name: "busto",
@@ -94,10 +113,20 @@ const Form = () => {
       {textField({
         label: "Número de calçado:",
         name: "calcado",
-        max: 0,
-        min: 50,
+
         placeholder: "Ex: 39.0 ",
       })}
+      <div className="buttons">
+        <Button variant="contained" type="submit">
+          Salvar
+        </Button>
+        <Button
+          variant="contained"
+          type="button"
+          onClick={() => setEdit(false)}>
+          Cancelar
+        </Button>
+      </div>
     </form>
   );
 };
