@@ -17,10 +17,6 @@ export const base = axios.create({
 base.interceptors.response.use(
   (response) => response,
   (error: any) => {
-    // Se a resposta 401 e ainda não foi tentativa de refresh
-    console.log(error);
-    console.log(error.response.data.message == "Token inválido ou expirado");
-
     if (error?.response?.data?.message == "Token inválido ou expirado") {
       refreshToken();
     }
@@ -31,9 +27,12 @@ base.interceptors.response.use(
 
 const refreshToken = async () => {
   try {
-    const res = await api.post("/users/refreshToken");
+    const res = await api.post("/users/refreshToken", {
+      refreshToken: localStorage.getItem("refreshToken"),
+    });
     if (res.data) {
       const { accessToken } = res.data;
+
       localStorage.setItem("accessToken", accessToken);
     }
     return;

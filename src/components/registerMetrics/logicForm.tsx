@@ -59,6 +59,21 @@ const useForm = () => {
   const submit = (e: FormEvent) => {
     e.preventDefault();
 
+    if (
+      !value.busto &&
+      !value.calcado &&
+      !value.cintura &&
+      !value.coxa &&
+      !value.quadril &&
+      !value.torax
+    ) {
+      setIsVisible(true);
+      setMessage(
+        "Preencha pelo menos uma das medidas (busto, calçado, cintura, coxa, quadril ou tórax)."
+      );
+      return;
+    }
+
     mutate({ ...value, uid_usuarios });
   };
 

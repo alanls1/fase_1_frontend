@@ -38,6 +38,7 @@ const Form = () => {
           title={`Insira valores entre ${min} e ${max} cm`}
           step="0.1"
           placeholder={placeholder}
+          required={true}
         />
       </div>
     );

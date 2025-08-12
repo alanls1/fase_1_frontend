@@ -5,14 +5,16 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import type { IValuesInput } from "../../types/login";
 import Input from "../input/Input";
+import { CircularProgress } from "@mui/material";
 
 interface prop {
   isLogin: boolean;
+  isSubmit: boolean;
   labelButton: string;
   handleSubmit: (e: IValuesInput) => void;
 }
 
-const Form = ({ isLogin, labelButton, handleSubmit }: prop) => {
+const Form = ({ isLogin, isSubmit, labelButton, handleSubmit }: prop) => {
   const [values, setValues] = useState<IValuesInput>({
     name: "",
     email: "",
@@ -28,6 +30,7 @@ const Form = ({ isLogin, labelButton, handleSubmit }: prop) => {
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
+
     handleSubmit(values);
   };
 
@@ -71,8 +74,12 @@ const Form = ({ isLogin, labelButton, handleSubmit }: prop) => {
       </div>
       {!isLogin && <small>A senha deve ter pelo menos 8 caracteres</small>}
       <div className="button-save">
-        <Button type={"submit"} variant="contained">
-          {labelButton}
+        <Button type={"submit"} variant="contained" disabled={isSubmit}>
+          {isSubmit ? (
+            <CircularProgress size="30px" sx={{ color: "white" }} />
+          ) : (
+            labelButton
+          )}
         </Button>
       </div>
     </form>
