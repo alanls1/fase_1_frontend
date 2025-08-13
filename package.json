@@ -1,8 +1,11 @@
 {
-  "name": "frontend",
+  "name": "Sistema de Medidas",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "author": {
+    "name": "Alan"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
