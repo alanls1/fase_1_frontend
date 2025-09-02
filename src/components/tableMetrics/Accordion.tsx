@@ -4,7 +4,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Form from "./Form";
-import ShownMetrics from "./shownMetrics";
+import ShownMetrics from "./ShownMetrics";
 import type { IMetrics } from "../../types/metrics";
 import { useState } from "react";
 
