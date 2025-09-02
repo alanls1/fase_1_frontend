@@ -20,9 +20,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: |
-          cd frontend
-          npm install
+        run: npm install
 
       - name: Build project
         run: npm run build
@@ -31,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: frontend
-          path: frontend/build/
+          path: dist/
 
   deploy:
     runs-on: ubuntu-latest
