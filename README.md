@@ -1,69 +1,74 @@
-# React + TypeScript + Vite
+# Sistema de Medidas Pessoais
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este repositório contém o **frontend** do projeto **Sistema de Medidas Pessoais**, desenvolvido como parte de um trabalho acadêmico.
+A aplicação oferece uma interface simples e intuitiva para que usuários possam **cadastrar, consultar e gerenciar medidas corporais**, integrando-se ao backend.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+* **React** (com Vite)
+* **TypeScript**
+* **SASS**
+* **Axios** (requisições HTTP)
+* **React Router** (navegação)
+* **Context API** (gerenciamento de autenticação e estado global)
+* **Zustand**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Configuração do Ambiente
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Clonar o repositório**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   git clone https://github.com/seu-usuario/sistema-medidas.git
+   cd sistema-medidas/frontend
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Instalar dependências**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```bash
+   npm install
+   ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Configurar variáveis de ambiente**
+   Criar um arquivo `.env` baseado no `.env.example`:
+
+   ```env
+   VITE_APP_URL_API=http://localhost:{PORTA}
+   ```
+
+   > ⚠️ Esse valor deve apontar para a URL do **backend**.
+
+4. **Rodar aplicação**
+
+   ```bash
+   npm run dev
+   ```
+
+   A aplicação ficará disponível em:
+   👉 `http://localhost:5173`
+
+---
+
+## 📜 Scripts Disponíveis
+
+* `npm run dev` → Executa em modo desenvolvimento
+* `npm run build` → Gera versão de produção
+* `npm run preview` → Pré-visualiza build
+* `npm run lint` → Verifica problemas de estilo e boas práticas
+
+---
+
+## 🔑 Funcionalidades Principais
+
+* **Autenticação de Usuários**
+
+  * Cadastro, login, logout e refresh de sessão
+* **Gerenciamento de Medidas**
+
+  * Cadastro de medidas corporais
+  * Listagem e edição de medidas
+  * Compartilhamento via código público
+---
