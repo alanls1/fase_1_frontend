@@ -21,9 +21,9 @@ const Register = () => {
       return res;
     },
     onSuccess: () => {
-      setMessage("Login realizado com sucesso");
+      setMessage("Cadastro realizado com sucesso");
       setIsVisible(true);
-      window.location.href = "/admin/";
+      window.location.href = "/";
       toggleSubmit();
     },
     onError: (error: any) => {

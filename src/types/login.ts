@@ -10,4 +10,5 @@ export interface IUser {
   email: string;
   name: string;
   uid_usuarios: string;
+  codigo_publico: string;
 }

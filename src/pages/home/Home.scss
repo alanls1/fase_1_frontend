@@ -1,8 +1,27 @@
 .container-hero {
   width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   .main {
+    flex: 1;
     max-width: 900px;
     margin-inline: auto;
+
+    .code {
+      display: flex;
+      width: 100%;
+      align-items: center;
+      color: black;
+      gap: 10px;
+
+      p {
+        background-color: rgba(175, 175, 175, 0.459);
+        padding: 10px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    }
     .metricts-registred {
       color: black;
       font-weight: bold;

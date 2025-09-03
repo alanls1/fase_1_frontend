@@ -13,13 +13,14 @@ export const login = async ({ email, password }: IValuesInput) => {
       const {
         accessToken,
         refreshToken,
-        user: { email, name, uid_usuario },
+        user: { email, name, uid_usuario, codigo_publico },
       } = res.data;
       localStorage.setItem("accessToken", accessToken);
       localStorage.setItem("refreshToken", refreshToken);
       localStorage.setItem("email", email);
       localStorage.setItem("name", name);
       localStorage.setItem("uid_usuarios", uid_usuario);
+      localStorage.setItem("codigo_publico", codigo_publico);
     }
 
     return res.data;

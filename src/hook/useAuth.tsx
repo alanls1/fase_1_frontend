@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     email: "",
     name: "",
     uid_usuarios: "",
+    codigo_publico: "",
   });
 
   useEffect(() => {
@@ -24,14 +25,23 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const email = localStorage.getItem("email");
     const name = localStorage.getItem("name");
     const uid_usuarios = localStorage.getItem("uid_usuarios");
+    const codigo_publico = localStorage.getItem("codigo_publico");
 
-    if (accessToken && refreshToken && email && name && uid_usuarios) {
+    if (
+      accessToken &&
+      refreshToken &&
+      email &&
+      name &&
+      uid_usuarios &&
+      codigo_publico
+    ) {
       setUser({
         accessToken,
         refreshToken,
         email,
         name,
         uid_usuarios,
+        codigo_publico,
       });
     }
   }, []);
